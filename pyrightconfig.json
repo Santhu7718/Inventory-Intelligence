@@ -1,0 +1,15 @@
+{
+  "pythonPath": "backend/venv/bin/python3",
+  "venvPath": "backend",
+  "venv": "venv",
+  "pythonVersion": "3.13",
+  "include": [
+    "backend/app",
+    "frontend.py"
+  ],
+  "exclude": [
+    "backend/venv"
+  ],
+  "reportMissingImports": "none",
+  "reportMissingModuleSource": "none"
+}
