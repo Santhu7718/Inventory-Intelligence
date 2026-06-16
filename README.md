@@ -241,6 +241,7 @@ Inventory-Intelligence/
 5. **Configure environment variables:**
    ```bash
    # Create .env file in backend/ directory
+   # Format: ******host:port/database
    DATABASE_URL=******localhost:5432/inventory_intelligence
    SECRET_KEY=your-super-secret-key-change-this
    ALGORITHM=HS256
@@ -308,9 +309,10 @@ Inventory-Intelligence/
 
 ### Backend Configuration
 
-Edit `backend/app/main.py` or use environment variables:
+Edit `backend/app/main.py` or use environment variables. Replace the `**` placeholders with your actual credentials:
 
 ```python
+# Format: ****://username:password@host:port/database
 DATABASE_URL = "******localhost:5432/inventory_intelligence"
 SECRET_KEY = "your-secret-key"  # Change this in production!
 ALGORITHM = "HS256"
@@ -369,7 +371,7 @@ curl -X POST "http://localhost:8000/users/login" \
     "email": "john@example.com",
     "password": "secure123"
   }'
-# Returns: {"access_token": "...", "token_type": "bearer"}
+# Returns: {"access_token": "******", "token_type": "bearer"}
 ```
 
 ### 2. **Add Materials to Inventory**
@@ -447,6 +449,12 @@ curl -X POST "http://localhost:8000/vendors/create-po" \
     "delivery_date": "2024-07-15"
   }'
 ```
+
+> **Note:** Replace `Authorization: ******` with the actual ****** format. After login, use:  
+> ```
+> -H "Authorization: ******<actual_token_from_login>"
+> ```
+> For example: `Authorization: ************
 
 ---
 
@@ -587,6 +595,7 @@ alembic upgrade head
 
 1. **Environment Variables:**
    ```bash
+   # Format: ****://username:password@host:port/database
    export DATABASE_URL="******prod-db:5432/inventory"
    export SECRET_KEY="production-secret-key-min-32-chars"
    export ENVIRONMENT="production"
